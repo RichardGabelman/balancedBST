@@ -20,3 +20,8 @@ prettyPrint(tree.root);
 tree.insert(200);
 
 prettyPrint(tree.root);
+
+tree.deleteItem(9);
+
+prettyPrint(tree.root);
+
