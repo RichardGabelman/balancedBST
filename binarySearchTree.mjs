@@ -97,8 +97,10 @@ export class Tree {
   }
 
   levelOrder(callback) {
-    if(typeof callback !== 'function') {
-      throw new Error(`levelOrder expected a function but received ${typeof callback}`);
+    if (typeof callback !== "function") {
+      throw new Error(
+        `levelOrder expected a function but received ${typeof callback}`
+      );
     }
 
     if (this.root === null) {
@@ -121,14 +123,43 @@ export class Tree {
   }
 
   inOrder(callback) {
+    if (typeof callback !== "function") {
+      throw new Error(
+        `inOrder expected a function but received ${typeof callback}`
+      );
+    }
+
+    if (this.root === null) {
+      return;
+    }
     return;
   }
 
-  preOrder(callback) {
-    return;
+  preOrder(callback, root = this.root) {
+    if (typeof callback !== "function") {
+      throw new Error(
+        `preOrder expected a function but received ${typeof callback}`
+      );
+    }
+
+    if (root === null) {
+      return;
+    }
+    callback(root);
+    this.preOrder(callback, root.left);
+    this.preOrder(callback, root.right);
   }
 
   postOrder(callback) {
+    if (typeof callback !== "function") {
+      throw new Error(
+        `postOrder expected a function but received ${typeof callback}`
+      );
+    }
+
+    if (this.root === null) {
+      return;
+    }
     return;
   }
 
