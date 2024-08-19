@@ -187,8 +187,10 @@ export class Tree {
     if (this.root === null) {
       return null;
     }
-    const difference = Math.abs(this.height(this.root.left) - this.height(this.root.right));
-    return (difference <= 1);
+    const difference = Math.abs(
+      this.height(this.root.left) - this.height(this.root.right)
+    );
+    return difference <= 1;
   }
 
   rebalance() {
