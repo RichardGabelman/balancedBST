@@ -21,5 +21,5 @@ function callbackTest(node) {
 
 prettyPrint(tree.root);
 
-tree.preOrder(callbackTest);
+tree.inOrder(callbackTest);
 
