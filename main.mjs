@@ -19,7 +19,5 @@ function printNodeValue(node) {
   console.log(node.data);
 }
 
-prettyPrint(tree.root);
-
-console.log(tree.height());
+console.log(tree.rebalance());
 

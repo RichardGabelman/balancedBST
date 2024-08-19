@@ -180,14 +180,21 @@ export class Tree {
   }
 
   depth(node) {
-    return;
+    return this.height() - this.height(node);
   }
 
   isBalanced() {
-    return;
+    if (this.root === null) {
+      return null;
+    }
+    const difference = Math.abs(this.height(this.root.left) - this.height(this.root.right));
+    return (difference <= 1);
   }
 
   rebalance() {
+    const values = [];
+    this.inOrder(values.push);
+    console.log(values);
     return;
   }
 }
