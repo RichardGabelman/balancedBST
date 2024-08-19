@@ -136,7 +136,6 @@ export class Tree {
     this.inOrder(callback, root.left);
     callback(root);
     this.inOrder(callback, root.right);
-    return;
   }
 
   preOrder(callback, root = this.root) {
@@ -164,7 +163,10 @@ export class Tree {
     if (root === null) {
       return;
     }
-    return;
+
+    this.postOrder(callback, root.left);
+    this.postOrder(callback, root.right);
+    callback(root);
   }
 
   height(node) {
