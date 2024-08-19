@@ -16,3 +16,7 @@ function prettyPrint(node, prefix = "", isLeft = true) {
 }
 
 prettyPrint(tree.root);
+
+tree.insert(200);
+
+prettyPrint(tree.root);
