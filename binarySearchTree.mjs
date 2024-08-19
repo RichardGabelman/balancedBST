@@ -97,7 +97,27 @@ export class Tree {
   }
 
   levelOrder(callback) {
-    return;
+    if(typeof callback !== 'function') {
+      throw new Error(`levelOrder expected a function but received ${typeof callback}`);
+    }
+
+    if (this.root === null) {
+      return;
+    }
+
+    const queue = [];
+    queue.push(this.root);
+
+    while (queue.length > 0) {
+      let curr = queue.shift();
+      callback(curr);
+      if (curr.left) {
+        queue.push(curr.left);
+      }
+      if (curr.right) {
+        queue.push(curr.right);
+      }
+    }
   }
 
   inOrder(callback) {

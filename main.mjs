@@ -15,9 +15,11 @@ function prettyPrint(node, prefix = "", isLeft = true) {
   }
 }
 
+function callbackTest(node) {
+  console.log(node.data);
+}
+
 prettyPrint(tree.root);
 
-tree.insert(200);
-
-console.log(tree.find(6));
+tree.levelOrder(callbackTest);
 
