@@ -193,8 +193,10 @@ export class Tree {
 
   rebalance() {
     const values = [];
-    this.inOrder(values.push);
-    console.log(values);
-    return;
+    function addToValues(node) {
+      values.push(node.data);
+    }
+    this.inOrder(addToValues);
+    this.root = this.buildTree(values);
   }
 }

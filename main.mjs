@@ -19,5 +19,16 @@ function printNodeValue(node) {
   console.log(node.data);
 }
 
-console.log(tree.rebalance());
+prettyPrint(tree.root);
+
+tree.insert(100);
+tree.insert(200);
+tree.insert(400);
+tree.insert(500000);
+
+prettyPrint(tree.root);
+
+tree.rebalance();
+
+prettyPrint(tree.root);
 
