@@ -81,7 +81,19 @@ export class Tree {
   }
 
   find(value) {
-    return;
+    let curr = this.root;
+
+    while (curr) {
+      if (value === curr.data) {
+        return curr;
+      }
+      if (value < curr.data) {
+        curr = curr.left;
+      } else {
+        curr = curr.right;
+      }
+    }
+    return null;
   }
 
   levelOrder(callback) {
