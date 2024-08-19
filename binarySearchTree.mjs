@@ -169,8 +169,14 @@ export class Tree {
     callback(root);
   }
 
-  height(node) {
-    return;
+  height(node = this.root) {
+    if (node === null) {
+      return 0;
+    }
+    if (node.left === null && node.right === null) {
+      return 0;
+    }
+    return 1 + Math.max(this.height(node.left), this.height(node.right));
   }
 
   depth(node) {

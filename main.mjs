@@ -15,11 +15,11 @@ function prettyPrint(node, prefix = "", isLeft = true) {
   }
 }
 
-function callbackTest(node) {
+function printNodeValue(node) {
   console.log(node.data);
 }
 
 prettyPrint(tree.root);
 
-tree.postOrder(callbackTest);
+console.log(tree.height());
 
