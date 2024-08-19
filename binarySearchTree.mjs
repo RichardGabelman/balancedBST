@@ -1,33 +1,32 @@
 class Node {
-  constructor() {
-    this.value = null;
+  constructor(value) {
+    this.data = value;
     this.left = null;
     this.right = null;
   }
 }
 
-class Tree {
+export class Tree {
   constructor(arr) {
-    this.root = buildTree(arr);
+    // Remove duplicates from arr
+    arr = [...new Set(arr)];
+    // Sort arr
+    arr.sort((a, b) => {
+      return a - b;
+    });
+    this.root = this.buildTree(arr);
   }
 
-  buildTree(arr) {
-
-
-    return;
-  }
-
-  prettyPrint(node, prefix = "", isLeft = true) {
-    if (node === null) {
-      return;
+  buildTree(arr, start = 0, end = arr.length - 1) {
+    if (start > end) {
+      return null;
     }
-    if (node.right !== null) {
-      prettyPrint(node.right, `${prefix}${isLeft ? "│   " : "    "}`, false);
-    }
-    console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.data}`);
-    if (node.left !== null) {
-      prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
-    }
+    const mid = Math.round((start + end) / 2);
+    const root = new Node(arr[mid]);
+    root.left = this.buildTree(arr, start, mid - 1);
+    root.right = this.buildTree(arr, mid + 1, end);
+
+    return root;
   }
 
   insert(value) {
@@ -65,7 +64,7 @@ class Tree {
   depth(node) {
     return;
   }
-  
+
   isBalanced() {
     return;
   }
